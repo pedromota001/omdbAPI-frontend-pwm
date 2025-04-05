@@ -1,14 +1,13 @@
+import Link from "next/link"
 import "./botao.css"
 
 
-const Botao = ({nome, onClick}) => {
+const Botao = ({nome, href}) => {
     return(
         <>
-            <div className="botoes-descritivo-inicial">
-                <button onClick={onClick} className="bg-red-600 m-2 text-white px-20 py-2 rounded hover:bg-[#0A1F44] transition">
-                    {nome}
-                </button>
-            </div>
+        <Link className="inline-flex justify-center items-center button-page-inicial bg-red-600 m-2 text-white px-20 py-2 rounded hover:bg-[#0A1F44] transition" href={href}>
+            {nome}
+        </Link>
         </>
     )
 }

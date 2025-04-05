@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Boldonse&family=Dosis:wght@200..800&family=Krona+One&family=Lilita+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
 .div-descritivo-inicial{
-    display: flex;
-    justify-content: center;
+    margin-top: 0;
 }
 
-h1{
-    color: #fff;
+.div-descritivo-inicial h1{
+    font-family: "Urbanist", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
 }
