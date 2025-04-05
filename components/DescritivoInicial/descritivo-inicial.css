@@ -1,0 +1,8 @@
+.div-descritivo-inicial{
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    color: #fff;
+}
