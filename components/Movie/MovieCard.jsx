@@ -8,7 +8,7 @@ export default function MovieCard({ movie }) {
   
   return (
     <div key={movie.id} className="movie-card">
-      <img src={movie.poster} alt={movie.title} onError={handleError}></img>
+      <img src={movie.posterUrl} alt={movie.titulo} onError={handleError}></img>
       <div className="movie-card-info">
         <h3 className="movie-card-title">{movie.titulo}</h3>
         <div>
