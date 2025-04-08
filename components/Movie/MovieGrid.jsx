@@ -1,6 +1,6 @@
 import React from "react";
-import MovieCard from "./MovieCard";
-//import styles.css
+import MovieCard from "./MovieCard.jsx";
+import "./styles.css"
 
 export default function MovieGrid({ movies }) {
   return (
@@ -12,7 +12,7 @@ export default function MovieGrid({ movies }) {
       />
       <div className="movie-grid">
         {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+          <MovieCard key={movie.objectId} movie={movie} />
         ))}
       </div>
     </div>

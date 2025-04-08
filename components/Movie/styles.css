@@ -1,11 +1,11 @@
 /* General Reset */
+/*
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   
-  /* Typography */
   body {
     font-family: 'Roboto', sans-serif;
     color: #fff;
@@ -16,12 +16,11 @@
     max-width: 1200px;
     margin: 0 auto;
   }
-  
-  /* Header Styles */
   .header {
     margin-top: 50px;
   }
-  
+*/
+
   .search-input {
     padding: 15px;
     margin: 25px 10px;
