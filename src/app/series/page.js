@@ -10,7 +10,7 @@ export default function SeriesPage() {
   async function carregar_series() {
     try {
       const response = await axios.get(
-        "https://parseapi.back4app.com/classes/Filme",
+        "https://parseapi.back4app.com/classes/Series",
         {
           headers: {
             "X-Parse-Application-Id":
@@ -30,7 +30,7 @@ export default function SeriesPage() {
   useEffect(() => {
     const fetchData = async () => {
       const series = await carregar_series();
-      setMovies(series);
+      setSeries(series);
     };
     fetchData();
   }, []);
@@ -38,7 +38,7 @@ export default function SeriesPage() {
   return (
     <>
       <h1>pagina de series</h1>
-      <MovieGrid series={series}></MovieGrid>
+      <MovieGrid movies={series}></MovieGrid>
     </>
   );
 }
