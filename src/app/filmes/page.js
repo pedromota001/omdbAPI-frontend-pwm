@@ -9,7 +9,7 @@ export default function FilmesPage() {
   
   async function carregar_filmes(){
     try{
-      const response = await axios.get("https://parseapi.back4app.com/classes/Series",
+      const response = await axios.get("https://parseapi.back4app.com/classes/Filme",
         {headers: {
         "X-Parse-Application-Id": "GwnUACA5KJuULzj5Pf30JZhwXU0lkeu43Z1wnDoN",
         "X-Parse-REST-API-Key": "8wYzUlStyJkZFCgAh1aHHy035JPU1e8wNhgRtBqp",
