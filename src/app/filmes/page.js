@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+"use client";
 import MovieGrid from "../../../components/Movie/MovieGrid";
-
+import React, { useEffect, useState } from "react";
 export default function FilmesPage() {
   const [movies, setMovies] = useState([]);
 
