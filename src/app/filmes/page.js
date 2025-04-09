@@ -34,7 +34,7 @@ export default function FilmesPage() {
   return (
     <>
       <h1>página de filmes</h1>
-      <MovieGrid movies={movies} />
+      <MovieGrid movies={movies} fluxo={"filmes"} />
     </>
   );
 }

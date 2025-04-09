@@ -2,7 +2,7 @@ import React from "react";
 import MovieCard from "./MovieCard.jsx";
 import "./styles.css"
 
-export default function MovieGrid({ movies }) {
+export default function MovieGrid({ movies, fluxo }) {
   return (
     <div>
       <input
@@ -12,7 +12,7 @@ export default function MovieGrid({ movies }) {
       />
       <div className="movie-grid">
         {movies.map((movie) => (
-          <MovieCard key={movie.objectId} movie={movie} />
+          <MovieCard key={movie.objectId} movie={movie} fluxo={fluxo} />
         ))}
       </div>
     </div>

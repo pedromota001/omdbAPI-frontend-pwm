@@ -2,10 +2,13 @@ import React from "react";
 import Link from "next/link";
 import "./styles.css";
 
-export default function MovieCard({ movie }) {
+export default function MovieCard({ movie, fluxo }) {
   const handleError = (e) => {
     e.target.src = "images/default.jpg";
   };
+
+  const href = fluxo === "filmes" ? "/filmes/" + movie.objectId
+  : "/series/" + movie.objectId
 
   const getRatingClass = (notaIMDB) => {
     if (notaIMDB >= 8) return "rating-good";
@@ -14,7 +17,7 @@ export default function MovieCard({ movie }) {
   };
   
   return (
-    <Link href={`/filmes/${movie.objectId}`}>
+    <Link href={href}>
       <div key={movie.id} className="movie-card">
         <img src={movie.posterUrl} alt={movie.titulo} onError={handleError} />
         <div className="movie-card-info">

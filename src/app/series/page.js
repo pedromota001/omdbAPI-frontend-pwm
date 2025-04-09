@@ -38,7 +38,7 @@ export default function SeriesPage() {
   return (
     <>
       <h1>pagina de series</h1>
-      <MovieGrid movies={series}></MovieGrid>
+      <MovieGrid movies={series} fluxo={"series"}></MovieGrid>
     </>
   );
 }
