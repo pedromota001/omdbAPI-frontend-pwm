@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles.css"
+import "./styles.css";
 
 export default function App() {
   const [posters, setPosters] = useState({
@@ -38,6 +38,7 @@ export default function App() {
           [position]: data.Poster,
         }));
 
+        // Glow temporário na imagem
         setImageGlow((prev) => ({
           ...prev,
           [position]: true,
@@ -59,20 +60,21 @@ export default function App() {
     const posters = document.querySelectorAll(".poster");
     posters.forEach((p) => p.classList.add("fade-out"));
 
+    // Aguarda a animação antes de limpar o estado
     setTimeout(() => {
       setPosters({ first: null, second: null, third: null });
       setImageGlow({ first: false, second: false, third: false });
 
       const inputs = document.querySelectorAll(".input");
       inputs.forEach((input) => (input.value = ""));
-    }, 400); 
+    }, 400); // o tempo da animação
   };
 
   const handleSaveClick = () => {
     setShowNameModal(true);
   };
 
-  const saveRanking = async () => {
+  const saveRanking = async (user) => {
     setShowNameModal(false);
     const inputs = document.querySelectorAll(".input");
     const data = {
@@ -83,11 +85,11 @@ export default function App() {
     };
 
     try {
-      const res = await fetch("https://parseapi.back4app.com/classes/Ranking", {
+      const res = await fetch("https://parseapi.back4app.com/classes/Rank", {
         method: "POST",
         headers: {
-          "X-Parse-Application-Id": "SUA_APP_ID_AQUI",
-          "X-Parse-REST-API-Key": "SUA_REST_API_KEY_AQUI",
+          "X-Parse-Application-Id": "GwnUACA5KJuULzj5Pf30JZhwXU0lkeu43Z1wnDoN",
+          "X-Parse-REST-API-Key": "8wYzUlStyJkZFCgAh1aHHy035JPU1e8wNhgRtBqp",
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
@@ -224,7 +226,7 @@ export default function App() {
             />
             <div className="modal-buttons">
               <button
-                onClick={() => saveRanking(usernameInput.trim() || "anônimo")}
+                onClick={() => saveRanking(usernameInput.trim() || "anonimo")}
                 className="save-button"
               >
                 Salvar
