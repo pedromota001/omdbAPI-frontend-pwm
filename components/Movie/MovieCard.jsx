@@ -1,5 +1,6 @@
 import React from "react";
-import "./styles.css"
+import Link from "next/link";
+import "./styles.css";
 
 export default function MovieCard({ movie }) {
   const handleError = (e) => {
@@ -24,6 +25,6 @@ export default function MovieCard({ movie }) {
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
