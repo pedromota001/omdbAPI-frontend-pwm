@@ -82,6 +82,8 @@ export default function App() {
       second: inputs[0]?.value || "",
       third: inputs[2]?.value || "",
       username: user,
+      //caso for implmentar funcionalidade de likes, criar campo na tabela do back4app e inicializar como '0' -> descomentar a linha abaixo:
+      //likes: 0,
     };
 
     try {
@@ -226,7 +228,7 @@ export default function App() {
             />
             <div className="modal-buttons">
               <button
-                onClick={() => saveRanking(usernameInput.trim() || "anonimo")}
+                onClick={() => saveRanking(usernameInput.trim() || "anônimo")}
                 className="save-button"
               >
                 Salvar
