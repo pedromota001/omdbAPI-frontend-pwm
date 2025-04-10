@@ -1,4 +1,18 @@
 .card-expandido-imagem{
-    width: 500px;
-    height: 750px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 50px 0 0 100px;
+    padding-right: 0;
+}
+
+.card-expandido-descricao{
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    margin: 50px 40px 0 0;
 }

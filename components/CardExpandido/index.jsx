@@ -7,14 +7,13 @@ const CardExpandido = ({object}) => {
     return(
         <>
             <div className="card-expandido-imagem">
-                <img src={object.posterUrl} alt={object.titulo} className="rounded-2xl shadow-lg object-cover w-full h-auto"></img>
+                <img src={object.posterUrl} alt={object.titulo} className="rounded-2xl shadow-lg object-cover w-[405px] h-auto mr-1"></img>
             </div>
-            <div>  
-                <DescritivoCardExpandido/>
+            <div className="card-expandido-descricao">  
+                <DescritivoCardExpandido object={object}/>
             </div>
         </>
     )
-
 
 }
 
