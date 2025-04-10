@@ -5,6 +5,7 @@ import "./DetalhesSerie.css"
 import { useParams } from "next/navigation";
 import axios from "axios";
 import CardExpandido from "../../../../components/CardExpandido";
+import Cabecalho from "../../../../components/Cabecalho";
 
 export default function DetalhesSeries(){
     const [serie, setSerie] = useState(null);
@@ -41,6 +42,7 @@ export default function DetalhesSeries(){
 
     return(
         <>
+            <Cabecalho/>
             <div className="div-detalhes-serie">
                 <CardExpandido object={serie}/>
             </div>
