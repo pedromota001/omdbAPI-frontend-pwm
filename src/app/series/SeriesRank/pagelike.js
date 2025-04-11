@@ -1,8 +1,8 @@
 "use client";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import SeriesGrid from "../../../components/Movie/MovieGrid"; // ou SeriesGrid se tiver separado
-import Botao from "../../../components/Botao";
+import SeriesGrid from "../../../../components/Movie/MovieGrid"; // ou SeriesGrid se tiver separado
+import Botao from "../../../../components/Botao";
 
 export default function RankingSeriesPage() {
   const [series, setSeries] = useState([]);
