@@ -3,7 +3,7 @@ import "./CardExpandido.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
-const CardExpandido = ({object, onClick}) => {
+const CardExpandido = ({object, onClick, num_likes}) => {
 
     const onHandleClick = (event) => {
         event.preventDefault();
