@@ -27,6 +27,7 @@ export default function SeriesPage() {
       );
       return response.data.results;
     } catch (err) {
+      console.error("Erro ao carregar séries:", err);
       alert("Erro ao carregar reviews", err);
       return [];
     }
