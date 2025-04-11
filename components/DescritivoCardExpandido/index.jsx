@@ -4,7 +4,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 
 const DescritivoCardExpandido = ({object}) => {
-    const informacoes_basicas = object.ano + " - " + object.genero + " - " + object.duracao
+    const informacoes_basicas = String(object.ano) + " - " + object.genero + " - " + object.duracao
     const color_avaliacao = () => {
         if(object.notaIMDB < 7){
             return "#E61D41"
