@@ -95,7 +95,7 @@ export default function SeriesPage() {
     <>
       <Cabecalho/>
       <div className="flex justify-end mt-4 mr-4">
-        <button className="bg-[#FF4C4C] text-white font-bold py-2 px-4 rounded transition hover:bg-[#e84343] hover:scale-105 hover:shadow-lg" 
+        <button className="bg-[#e50914] text-white font-bold py-2 px-4 rounded transition hover:bg-[#e84343] hover:scale-105 hover:shadow-lg" 
         onClick={() => setShowModal(true)}>
           Adicionar review
         </button>
