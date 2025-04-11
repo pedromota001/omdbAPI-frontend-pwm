@@ -1,43 +1,60 @@
 "use client";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import SeriesGrid from "../../../../components/Movie/MovieGrid"; // ou SeriesGrid se tiver separado
-import Botao from "../../../../components/Botao";
+import React, { useEffect, useState, useCallback } from "react";
+import SeriesGrid from "../../../components/Movie/MovieGrid";
+import Botao from "../../../components/Botao";
+
+const API_CONFIG = {
+  url: "https://parseapi.back4app.com/classes/Serie",
+  headers: {
+    "X-Parse-Application-Id": "GwnUACA5KJuULzj5Pf30JZhwXU0lkeu43Z1wnDoN",
+    "X-Parse-REST-API-Key": "8wYzUlStyJkZFCgAh1aHHy035JPU1e8wNhgRtBqp",
+    "Content-Type": "application/json",
+  },
+};
 
 export default function RankingSeriesPage() {
   const [series, setSeries] = useState([]);
-  const [ordenado, setOrdenado] = useState(false);
+  const [ordem, setOrdem] = useState<"asc" | "desc" | "nome">("desc");
 
-  async function carregarSeries() {
+  const fetchSeries = useCallback(async () => {
     try {
-      const response = await axios.get("https://parseapi.back4app.com/classes/Serie", {
-        headers: {
-          "X-Parse-Application-Id": "GwnUACA5KJuULzj5Pf30JZhwXU0lkeu43Z1wnDoN",
-          "X-Parse-REST-API-Key": "8wYzUlStyJkZFCgAh1aHHy035JPU1e8wNhgRtBqp",
-          "Content-Type": "application/json",
-        },
+      const response = await axios.get(API_CONFIG.url, {
+        headers: API_CONFIG.headers,
       });
-
       return response.data.results || [];
-    } catch (err) {
-      console.error("Erro ao carregar séries:", err);
-      alert("Erro ao carregar séries: " + err.message);
+    } catch (error) {
+      console.error("Erro ao buscar séries:", error);
+      alert("Erro ao carregar séries: " + error.message);
       return [];
     }
-  }
+  }, []);
 
-  function ordenarPorCurtidas(lista) {
-    return [...lista].sort((a, b) => (b.likes || 0) - (a.likes || 0));
-  }
+  const ordenarSeries = (lista, ordem) => {
+    return [...lista].sort((a, b) => {
+      const likesA = a.likes || 0;
+      const likesB = b.likes || 0;
+
+      if (ordem === "asc") return likesA - likesB;
+      if (ordem === "desc") return likesB - likesA;
+      if (ordem === "nome") {
+        const nomeA = a.nome?.toLowerCase() || "";
+        const nomeB = b.nome?.toLowerCase() || "";
+        return nomeA.localeCompare(nomeB);
+      }
+
+      return 0;
+    });
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      const dados = await carregarSeries();
-      const resultado = ordenado ? ordenarPorCurtidas(dados) : dados;
-      setSeries(resultado);
+    const carregarSeries = async () => {
+      const dados = await fetchSeries();
+      const ordenadas = ordenarSeries(dados, ordem);
+      setSeries(ordenadas);
     };
-    fetchData();
-  }, [ordenado]);
+    carregarSeries();
+  }, [fetchSeries, ordem]);
 
   return (
     <main className="px-4 py-6">
@@ -46,11 +63,9 @@ export default function RankingSeriesPage() {
       </h1>
 
       <div className="flex justify-center gap-4 flex-wrap mb-6">
-        <Botao
-          nome="Ranking por Curtidas"
-          href="#"
-          onClick={() => setOrdenado(true)}
-        />
+        <Botao nome="Likes Decrescente" href="#" onClick={() => setOrdem("desc")} />
+        <Botao nome="Likes Crescente" href="#" onClick={() => setOrdem("asc")} />
+        <Botao nome="Nome A-Z" href="#" onClick={() => setOrdem("nome")} />
       </div>
 
       <SeriesGrid movies={series} />
