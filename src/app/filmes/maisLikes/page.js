@@ -1,4 +1,5 @@
 "use client";
+import "./ordenada.css"
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import MovieGrid from "../../../../components/Movie/MovieGrid";
@@ -58,13 +59,13 @@ export default function RankingPage() {
         <div className="flex justify-center gap-4 flex-wrap mb-6">
           <button
             onClick={() => setOrdem("desc")}
-            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+            className=" bg-red-600 m-2 text-white px-20 py-2 rounded hover:bg-[#0A1F44] transition"
           >
             Likes Decrescente
           </button>
           <button
             onClick={() => setOrdem("asc")}
-            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+            className="bg-red-600 m-2 text-white px-20 py-2 rounded hover:bg-[#0A1F44] transition"
           >
             Likes Crescente
           </button>

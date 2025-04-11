@@ -1,0 +1,12 @@
+h1{
+    font-family: sans-serif;
+  color: #facc15;
+}
+button{
+    font-family: "Urbanist", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+    width: 500px;
+}
