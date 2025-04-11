@@ -65,7 +65,8 @@ export default function SeriesPage() {
             notaIMDB: parseInt(serie.imdbRating),
             comentario: review,
             user_email: email,
-            posterUrl: serie.Poster
+            posterUrl: serie.Poster,
+            ano: parseInt(serie.Year)
           },
           {
             headers: {

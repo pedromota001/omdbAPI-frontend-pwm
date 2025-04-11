@@ -3,7 +3,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import MovieGrid from "../../../../components/Movie/MovieGrid";
 import Botao from "../../../../components/Botao";
-import Cabecalho from "../../../../components/Cabecalho";
 
 export default function RankingPage() {
   const [rankedMovies, setRankedMovies] = useState([]);
@@ -49,12 +48,10 @@ export default function RankingPage() {
   }, [ordem]);
 
   return (
-    <>
-      <Cabecalho />
-      <main className="px-4 py-6">
-        <h1 className="text-3xl font-bold mb-4 text-center text-white font-[Urbanist]">
-          Ranking: Por likes
-        </h1>
+    <main className="px-4 py-6">
+      <h1 className="text-3xl font-bold mb-4 text-center text-white font-[Urbanist]">
+        Ranking: Por likes 
+      </h1>
 
         <div className="flex justify-center gap-4 flex-wrap mb-6">
           <Botao
@@ -69,8 +66,8 @@ export default function RankingPage() {
           />
         </div>
 
-        <MovieGrid movies={rankedMovies} />
-      </main>
+      <MovieGrid movies={rankedMovies} />
+    </main>
     </>
   );
 }
