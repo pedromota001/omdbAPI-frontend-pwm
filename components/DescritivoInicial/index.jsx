@@ -9,6 +9,9 @@ const DescritivoInicial = () => {
             <div className="flex flex-col justify-center items-center">
                 <Botao nome="Series" href={"/series"}/>
                 <Botao nome="Filmes" href={"/filmes"}/>
+                <Botao nome="Ranks" href={"/rank"}/>
+                <Botao nome="Cadastro de ranks" href={"/rankCreate"}/>
+                <Botao nome="Top 10 reviews de filmes" href={"/filmes/maisLikes"}/>
             </div>
         </div>
         </>

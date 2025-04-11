@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles.css";
 
-export default function App() {
+export default function RankingCreate() {
   const [posters, setPosters] = useState({
     first: null,
     second: null,

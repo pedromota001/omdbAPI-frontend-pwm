@@ -1,8 +1,8 @@
 "use client";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import MovieGrid from "../../../components/Movie/MovieGrid";
-import Botao from "../../../components/Botao"; // componente de botão estilizado
+import MovieGrid from "../../../../components/Movie/MovieGrid";
+import Botao from "../../../../components/Botao";
 
 export default function RankingPage() {
   const [rankedMovies, setRankedMovies] = useState([]);
