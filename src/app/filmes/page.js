@@ -47,6 +47,7 @@ export default function FilmesPage() {
       console.log(response.data.Type);
       if(response && response.data.Type === "movie"){
         const filme = response.data;
+        console.log(filme)
         await axios.post(
           "https://parseapi.back4app.com/classes/Filme",
           {
@@ -60,7 +61,8 @@ export default function FilmesPage() {
             notaIMDB: parseInt(filme.imdbRating),
             comentario: review,
             user_email: email,
-            posterUrl: filme.Poster
+            posterUrl: filme.Poster,
+            ano: parseInt(filme.Year)
           },
           {
             headers: {

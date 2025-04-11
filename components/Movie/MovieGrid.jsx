@@ -24,7 +24,7 @@ export default function MovieGrid({ movies, fluxo }) {
       <input
         type="text"
         className="search-input"
-        placeholder="Search Movies..."
+        placeholder="Search Movies or filmes..."
         value={searchTerm}
         onChange={handleSearchTerm}
       />
