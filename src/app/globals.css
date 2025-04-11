@@ -23,33 +23,123 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
 }
 
-.p-8 {
-  padding: 0;
-}
-
-.div-boas-vindas{
+.div-boas-vindas {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.div-boas-vindas h1{
+.div-boas-vindas h1 {
   color: #FFD700;
   font-size: 70px;
   font-family: "Urbanist", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 700;
-  font-style: normal;
 }
 
-.div-boas-vindas p{
+.div-boas-vindas p {
   color: #FFD700;
   font-family: "Dosis", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 500;
-  font-style: normal;
   font-size: 20px;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0c1c3b;
+  padding: 1rem; 
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  transition: transform 0.2s ease-in-out;
+  width: 100%;
+  max-width: 250px;
+  overflow: hidden; 
+}
+
+.movie-card:hover {
+  transform: scale(1.03);
+}
+
+.movie-card-poster {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 12px;
+  margin-top: 0.5rem; 
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.movie-card-info {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.movie-card-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.movie-card-details {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.movie-card-genre {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+.movie-card-rating {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  min-width: 24px;
+  padding: 0 6px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 12px;
+  background-color: #222;
+  color: gold;
+  line-height: 1;
+}
+
+
+
+.rating-good {
+  color: #00e676;
+  background-color: green;
+}
+
+.rating-ok {
+  color: #ffc107;
+  background-color: orange;
+}
+
+.rating-bad {
+  color: #f44336;
+  background-color: red;
+}
+
+.movie-card-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  background-color: #e50914;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.movie-card-link:hover {
+  background-color: #b00710;
 }

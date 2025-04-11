@@ -1,4 +1,7 @@
-import "./DescritivoCardExpandido.css"
+import "./DescritivoCardExpandido.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
+
 
 const DescritivoCardExpandido = ({object}) => {
     const informacoes_basicas = "2004-2005" + " - " + object.genero + " - " + object.duracao
@@ -27,7 +30,7 @@ const DescritivoCardExpandido = ({object}) => {
                     <p>Prêmios: {object.premios}</p>
                 </div>
                 <div className="mt-48 font-medium font-[Montserrat] not-italic">
-                    <p>Review: {object.email_user}</p>
+                    <p>Review: {object.user_email}</p>
                 </div>
             </div>
             <div className="div-descricao-review">
