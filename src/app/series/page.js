@@ -46,10 +46,11 @@ export default function SeriesPage() {
   }
   
   const onSubmitModalSerie = async (titulo, email, review) => {
-    console.log("entrou")
+    const titulo_formatado = titulo.replaceAll(" ", "+");
     try{
-      const response = await axios.get(url + titulo + apiKey)
-      if(response){
+      const response = await axios.get(url + titulo_formatado + apiKey);
+      console.log(response.data.Type);
+      if(response && response.data.Type === "series"){
         const serie = response.data;
         await axios.post(
           "https://parseapi.back4app.com/classes/Series",
@@ -74,10 +75,10 @@ export default function SeriesPage() {
             }
           }
         );
-        alert("Review salvo com sucesso")
         setShowModal(false);
         const atualizadas = await carregar_series();
         setSeries(atualizadas);
+        alert("Review salvo com sucesso")
       }
       else{
         console.log("erro")

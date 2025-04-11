@@ -53,9 +53,9 @@
   
   /* Movies Grid Styles */
   .movies-grid, .watchlist {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 250px);
-    gap: 2rem 2rem;  
+    display: flex;
+    flex-wrap: wrap;             
+    gap: 2rem 2rem;
     padding: 1rem;
     justify-content: center;
   }
@@ -67,6 +67,7 @@
     overflow: hidden;
     transition: transform 0.2s ease-in-out;
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, .5);
+    width: 250px;
   }
   
   .movie-card:hover {
