@@ -8,7 +8,7 @@ export default function Home() {
       <Cabecalho/>
       <div className="div-boas-vindas">
         <h1>Bem vindo ao CineApp</h1>
-        <p>Monte seu próprio catálogo de filmes, adicione títulos à sua lista e nunca mais esqueça o que você já assistiu!</p>
+        <p>Avalie filmes e séries. Compartilhe suas opiniões e veja o que outros acharam também!</p>
         <Image src="/pipoca.png" alt="imagem de pipoca" width={200} height={200}/>
       </div>
       <DescritivoInicial/>
