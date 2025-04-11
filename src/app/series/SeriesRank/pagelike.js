@@ -1,17 +1,9 @@
 "use client";
-import axios from "axios";
-import React, { useEffect, useState, useCallback } from "react";
-import SeriesGrid from "../../../components/Movie/MovieGrid";
-import Botao from "../../../components/Botao";
 
-const API_CONFIG = {
-  url: "https://parseapi.back4app.com/classes/Serie",
-  headers: {
-    "X-Parse-Application-Id": "GwnUACA5KJuULzj5Pf30JZhwXU0lkeu43Z1wnDoN",
-    "X-Parse-REST-API-Key": "8wYzUlStyJkZFCgAh1aHHy035JPU1e8wNhgRtBqp",
-    "Content-Type": "application/json",
-  },
-};
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import SeriesGrid from "../../../../components/Movie/MovieGrid"; // ou SeriesGrid se tiver separado
+import Botao from "../../../../components/Botao";
 
 export default function RankingSeriesPage() {
   const [series, setSeries] = useState([]);
@@ -19,8 +11,12 @@ export default function RankingSeriesPage() {
 
   const fetchSeries = useCallback(async () => {
     try {
-      const response = await axios.get(API_CONFIG.url, {
-        headers: API_CONFIG.headers,
+      const response = await axios.get("https://parseapi.back4app.com/classes/Serie", {
+        headers: {
+          "X-Parse-Application-Id": "GwnUACA5KJuULzj5Pf30JZhwXU0lkeu43Z1wnDoN",
+          "X-Parse-REST-API-Key": "8wYzUlStyJkZFCgAh1aHHy035JPU1e8wNhgRtBqp",
+          "Content-Type": "application/json",
+        },
       });
       return response.data.results || [];
     } catch (error) {
@@ -68,7 +64,7 @@ export default function RankingSeriesPage() {
         <Botao nome="Nome A-Z" href="#" onClick={() => setOrdem("nome")} />
       </div>
 
-      <SeriesGrid movies={series} />
+      <MovieGrid movies={series} />
     </main>
   );
 }
