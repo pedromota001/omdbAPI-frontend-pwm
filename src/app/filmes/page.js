@@ -2,6 +2,7 @@
 import axios from "axios";
 import MovieGrid from "../../../components/Movie/MovieGrid";
 import React, { useEffect, useState } from "react";
+import Cabecalho from "../../../components/Cabecalho";
 
 export default function FilmesPage() {
   const [movies, setMovies] = useState([]);
@@ -33,8 +34,8 @@ export default function FilmesPage() {
 
   return (
     <>
-      <h1>página de filmes</h1>
-      <MovieGrid movies={movies} fluxo={"filmes"} />
+      <Cabecalho></Cabecalho>
+      <MovieGrid movies={movies} />
     </>
   );
 }
