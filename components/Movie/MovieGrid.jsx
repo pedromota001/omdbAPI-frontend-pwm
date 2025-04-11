@@ -10,7 +10,7 @@ export default function MovieGrid({ movies, fluxo }) {
         className="search-input"
         placeholder="Search Movies..."
       />
-      <div className="movie-grid">
+      <div className="movies-grid">
         {movies.map((movie) => (
           <MovieCard key={movie.objectId} movie={movie} fluxo={fluxo} />
         ))}

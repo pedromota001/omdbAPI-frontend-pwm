@@ -2,7 +2,16 @@ import React from "react";
 import Link from "next/link";
 import "./styles.css";
 
-export default function MovieCard({ movie }) {
+export default function MovieCard({ movie, fluxo }) {
+
+  let href = "";
+
+  if (fluxo === "series") {
+    href = "/series/" + movie.objectId;
+  } else {
+    href = "/filmes/" + movie.objectId;
+  }
+
   const handleError = (e) => {
     e.target.src = "/images/default.jpg";
   };
@@ -29,7 +38,7 @@ export default function MovieCard({ movie }) {
             {movie.notaIMDB}
           </span>
         </div>
-        <Link href={`/filmes/${movie.objectId}`} className="movie-card-link">
+        <Link href={href} className="movie-card-link">
           Ver mais
         </Link>
       </div>
