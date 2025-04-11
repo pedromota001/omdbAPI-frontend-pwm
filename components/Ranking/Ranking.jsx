@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./styles.css";
-import Cabecalho from "../Cabecalho";
 
 export default function RankingCreate() {
   const [posters, setPosters] = useState({
@@ -118,7 +117,6 @@ export default function RankingCreate() {
 
   return (
     <div className="container">
-      <Cabecalho/>
       <h1 className="title">Rank Your Favorite Movies and Series</h1>
 
       <div className="podium">
