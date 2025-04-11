@@ -1,4 +1,7 @@
-import "./DescritivoCardExpandido.css"
+import "./DescritivoCardExpandido.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
+
 
 const DescritivoCardExpandido = ({object}) => {
     const informacoes_basicas = "2004-2005" + " - " + object.genero + " - " + object.duracao
