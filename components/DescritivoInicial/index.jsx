@@ -12,6 +12,7 @@ const DescritivoInicial = () => {
                 <Botao nome="Ranks" href={"/rank"}/>
                 <Botao nome="Cadastro de ranks" href={"/rankCreate"}/>
                 <Botao nome="Top 10 reviews de filmes" href={"/filmes/maisLikes"}/>
+                <Botao nome="Top 10 reviews de séries" href={"/series/SeriesRank"}/>
             </div>
         </div>
         </>

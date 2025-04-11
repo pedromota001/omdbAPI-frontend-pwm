@@ -1,7 +1,8 @@
 "use client";
+
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import SeriesGrid from "../../../../components/Movie/MovieGrid"; // ou SeriesGrid se tiver separado
+import MovieGrid from "../../../../components/Movie/MovieGrid"; 
 import Botao from "../../../../components/Botao";
 
 export default function RankingSeriesPage() {
@@ -10,7 +11,7 @@ export default function RankingSeriesPage() {
 
   async function carregarSeries() {
     try {
-      const response = await axios.get("https://parseapi.back4app.com/classes/Serie", {
+      const response = await axios.get("https://parseapi.back4app.com/classes/Series", {
         headers: {
           "X-Parse-Application-Id": "GwnUACA5KJuULzj5Pf30JZhwXU0lkeu43Z1wnDoN",
           "X-Parse-REST-API-Key": "8wYzUlStyJkZFCgAh1aHHy035JPU1e8wNhgRtBqp",
@@ -53,7 +54,7 @@ export default function RankingSeriesPage() {
         />
       </div>
 
-      <SeriesGrid movies={series} />
+      <MovieGrid movies={series} />
     </main>
   );
 }
