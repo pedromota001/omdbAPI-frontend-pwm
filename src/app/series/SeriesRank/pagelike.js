@@ -1,70 +1,77 @@
 "use client";
-
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import MovieGrid from "../../../../components/Movie/MovieGrid"; // ou SeriesGrid se tiver separado
-import Botao from "../../../../components/Botao";
+import MovieGrid from "../../../../components/Movie/MovieGrid"; 
+import Cabecalho from "../../../../components/Cabecalho";
 
 export default function RankingSeriesPage() {
-  const [series, setSeries] = useState([]);
-  const [ordem, setOrdem] = useState<"asc" | "desc" | "nome">("desc");
+  const [rankedSeries, setRankedSeries] = useState([]);
+  const [ordem, setOrdem] = useState("desc");
 
-  const fetchSeries = useCallback(async () => {
+  async function carregar_series() {
     try {
-      const response = await axios.get("https://parseapi.back4app.com/classes/Serie", {
+      const response = await axios.get("https://parseapi.back4app.com/classes/Series", {
         headers: {
           "X-Parse-Application-Id": "GwnUACA5KJuULzj5Pf30JZhwXU0lkeu43Z1wnDoN",
           "X-Parse-REST-API-Key": "8wYzUlStyJkZFCgAh1aHHy035JPU1e8wNhgRtBqp",
           "Content-Type": "application/json",
         },
       });
-      return response.data.results || [];
-    } catch (error) {
-      console.error("Erro ao buscar séries:", error);
-      alert("Erro ao carregar séries: " + error.message);
+
+      return response.data.results;
+    } catch (err) {
+      console.error("Erro ao carregar séries:", err);
+      alert("Erro ao carregar séries: " + err.message);
       return [];
     }
-  }, []);
+  }
 
-  const ordenarSeries = (lista, ordem) => {
-    return [...lista].sort((a, b) => {
-      const likesA = a.likes || 0;
-      const likesB = b.likes || 0;
-
-      if (ordem === "asc") return likesA - likesB;
-      if (ordem === "desc") return likesB - likesA;
-      if (ordem === "nome") {
-        const nomeA = a.nome?.toLowerCase() || "";
-        const nomeB = b.nome?.toLowerCase() || "";
-        return nomeA.localeCompare(nomeB);
-      }
-
-      return 0;
-    });
-  };
+  function ordenar_series(series, ordem) {
+    const copia = [...series];
+    const ordenadas = copia.sort((a, b) =>
+      ordem === "asc"
+        ? parseInt(a.likes || 0) - parseInt(b.likes || 0)
+        : parseInt(b.likes || 0) - parseInt(a.likes || 0)
+    );
+    console.log("Séries ordenadas:", ordenadas.map(s => ({ nome: s.nome, likes: s.likes })));
+    return ordenadas;
+  }
 
   useEffect(() => {
-    const carregarSeries = async () => {
-      const dados = await fetchSeries();
-      const ordenadas = ordenarSeries(dados, ordem);
-      setSeries(ordenadas);
+    const fetchData = async () => {
+      console.log("useEffect acionado com ordem:", ordem);
+      const series = await carregar_series();
+      const ordenadas = ordenar_series(series, ordem);
+      setRankedSeries(ordenadas);
     };
-    carregarSeries();
-  }, [fetchSeries, ordem]);
+    fetchData();
+  }, [ordem]);
 
   return (
-    <main className="px-4 py-6">
-      <h1 className="text-3xl font-bold mb-4 text-center text-white font-[Urbanist]">
-        Ranking: Séries Mais Curtidas
-      </h1>
+    <>
+      <Cabecalho />
+      <main className="px-4 py-6">
+        <h1 className="text-3xl font-bold mb-4 text-center text-white font-[Urbanist]">
+          Ranking: Séries Mais Curtidas
+        </h1>
 
-      <div className="flex justify-center gap-4 flex-wrap mb-6">
-        <Botao nome="Likes Decrescente" href="#" onClick={() => setOrdem("desc")} />
-        <Botao nome="Likes Crescente" href="#" onClick={() => setOrdem("asc")} />
-        <Botao nome="Nome A-Z" href="#" onClick={() => setOrdem("nome")} />
-      </div>
+        <div className="flex justify-center gap-4 flex-wrap mb-6">
+          <button
+            onClick={() => setOrdem("desc")}
+            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          >
+            Likes Decrescente
+          </button>
+          <button
+            onClick={() => setOrdem("asc")}
+            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+          >
+            Likes Crescente
+          </button>
+        </div>
 
-      <MovieGrid movies={series} />
-    </main>
+        <MovieGrid movies={rankedSeries} /> 
+      </main>
+    </>
   );
 }
