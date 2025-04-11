@@ -10,7 +10,7 @@ export default function RankingSeriesPage() {
 
   async function carregar_series() {
     try {
-      const response = await axios.get("https://parseapi.back4app.com/classes/Serie", {
+      const response = await axios.get("https://parseapi.back4app.com/classes/Series", {
         headers: {
           "X-Parse-Application-Id": "GwnUACA5KJuULzj5Pf30JZhwXU0lkeu43Z1wnDoN",
           "X-Parse-REST-API-Key": "8wYzUlStyJkZFCgAh1aHHy035JPU1e8wNhgRtBqp",
