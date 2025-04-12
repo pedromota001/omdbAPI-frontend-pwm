@@ -1,12 +1,12 @@
 ## CineApp
 
 ## Equipe
-Gustavo Porto - 848942
-Luis Gustavo - 848988
-Miguel Procópio - 849029
-Pedro Mota - 849615
-Rondon Guilherme - 850074
-Thiago Araujo - 848621
+Gustavo Porto - 848942  
+Luis Gustavo - 848988  
+Miguel Procópio - 849029  
+Pedro Mota - 849615  
+Rondon Guilherme - 850074  
+Thiago Araujo - 848621  
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
